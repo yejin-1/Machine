@@ -1,27 +1,47 @@
-import javax.swing.JFrame;
-import javax.swing.JButton;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 
 
 public class Machine extends JFrame implements MouseListener
 {
-    private JPanel j1 = new JPanel (new BorderLayout());
-    private JPanel j2= new JPanel (new FlowLayout());
+    JFrame frame = new JFrame();
+
+
+    private JPanel j1= new JPanel(new BorderLayout());
+    private JPanel endPage = new JPanel(new FlowLayout());
+    private JPanel j2= new JPanel (new GridLayout(0, 3, 5, 0));
     private JPanel j3= new JPanel (new FlowLayout());
     private JPanel j4= new JPanel (new FlowLayout());
-    private JPanel j5= new JPanel (new GridLayout(3,6));
+    private JPanel j5= new JPanel (new GridLayout(0, 3, 10, 10));
 
-    private JTextField b1 = new JTextField("포카리스웨트");
-    private JTextField b2= new JTextField("게토레이");
-    private JTextField b3= new JTextField("코카콜라");
+    private JLabel title = new JLabel("음료수 자판기");
+    private JButton btnEnd = new JButton("구매가 완료되었습니다!");
+    ImageIcon b1 = new ImageIcon("C:\\Users\\dpfls\\eclipse-workspace\\Japangi\\src\\coffee.png");
+    JLabel imagelabel1 = new JLabel(b1);
+    ImageIcon b2 = new ImageIcon("C:\\Users\\dpfls\\eclipse-workspace\\Japangi\\src\\milk.png");
+    JLabel imagelabel2 = new JLabel(b2);
+    ImageIcon b3 = new ImageIcon("C:\\Users\\dpfls\\eclipse-workspace\\Japangi\\src\\cola.png");
+    JLabel imagelabel3 = new JLabel(b3);
+
+    private JLabel name1 = new JLabel("커피 : 1300원");
+    private JLabel name2 = new JLabel("바나나우유 : 1200원");
+    private JLabel name3 = new JLabel("콜라 : 1400원");
 
     private JLabel l1 = new JLabel("0");
     private JButton bu1 = new JButton("+1");
@@ -38,12 +58,16 @@ public class Machine extends JFrame implements MouseListener
     private JTextField s1 = new JTextField("0");
     private JButton ss1 = new JButton("시작");
 
-    private JTextField s2 = new JTextField("0");
+    private JLabel s2 = new JLabel("0");
     private JButton ss2 = new JButton("구매");
 
     private static int Num1=0;
     private static int Num2=0;
     private static int Num3=0;
+
+
+
+
 
     public Machine()
     {
@@ -55,15 +79,30 @@ public class Machine extends JFrame implements MouseListener
 
     public void init()
     {
-        this.setSize(500,500);
+        this.setSize(600,600);
 
-        j2.add(b1);
-        j2.add(b2);
-        j2.add(b3);
+        j2.setBorder(BorderFactory.createEmptyBorder(50 , 0 , 0, 0));
+
+
+        name1.setFont(new Font("굴림", Font.BOLD, 15));
+        name2.setFont(new Font("굴림", Font.BOLD, 15));
+        name3.setFont(new Font("굴림", Font.BOLD, 15));
+        btnEnd.setFont(new Font("굴림", Font.BOLD, 15));
+        j1.add(title);
+        this.add("North",j1);
+
+        endPage.add(btnEnd);
+
+        j2.add(imagelabel1);
+        j2.add(imagelabel2);
+        j2.add(imagelabel3);
         this.add("North",j2);
 
 
         this.add("Center",j5);
+        j5.add(name1);
+        j5.add(name2);
+        j5.add(name3);
         j5.add(l1);
         j5.add(l2);
         j5.add(l3);
@@ -101,13 +140,46 @@ public class Machine extends JFrame implements MouseListener
         j4.setPreferredSize(new Dimension(100,100));
         j5.setPreferredSize(new Dimension(100,100));
 
+        this.getContentPane().add(j1,BorderLayout.NORTH);
         this.getContentPane().add(j2,BorderLayout.NORTH);
         this.getContentPane().add(j5,BorderLayout.CENTER);
         this.getContentPane().add(j3,BorderLayout.SOUTH);
         this.getContentPane().add(j4,BorderLayout.SOUTH);
 
+        endPage.setVisible(false);
 
         this.setVisible(true);
+
+
+        ss2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getContentPane().add(endPage,BorderLayout.CENTER);
+                endPage.setVisible(true);
+                j2.setVisible(false);
+                j3.setVisible(false);
+                j4.setVisible(false);
+                j5.setVisible(false);
+            }
+
+        });
+
+        btnEnd.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+
+        });
+
+
+
+
+
+
+
     }
 
 
@@ -209,6 +281,7 @@ public class Machine extends JFrame implements MouseListener
     {
 
     }
+
 
 
 
