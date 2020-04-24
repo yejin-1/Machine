@@ -318,4 +318,4 @@ import java.awt.Color;
 
 ## 결과창
 
-![](images/machine.png)
+![](images/machine.PNG)
