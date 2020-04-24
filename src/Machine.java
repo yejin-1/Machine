@@ -35,7 +35,6 @@ public class Machine extends JFrame implements MouseListener {
 
    private JLabel title1 = new JLabel("Put the money in and choose the drink you want.");
 
-    private JLabel title2 = new JLabel("COFFEE MACHINE");
     private JButton btnEnd = new JButton("Your purchase has been completed!");
     ImageIcon b1 = new ImageIcon("images/coffee.png");
     JLabel imagelabel1 = new JLabel(b1);
@@ -94,7 +93,7 @@ public class Machine extends JFrame implements MouseListener {
 
     public Machine()
     {
-        super("VENDING MACHINE");
+        super("COFFEE MACHINE");
 
         init();
         start();
@@ -185,8 +184,8 @@ public class Machine extends JFrame implements MouseListener {
 
 
 
-        j1.setPreferredSize(new Dimension(50, 50));
-        j5.setPreferredSize(new Dimension(400, 400));
+        j1.setPreferredSize(new Dimension(70, 70));
+        j5.setPreferredSize(new Dimension(380, 380));
         j6.setPreferredSize(new Dimension(150, 150));
 
 
