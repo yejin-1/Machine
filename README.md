@@ -86,8 +86,8 @@ public Machine()
 }
 ```
 
-+ ```창의 사이즈 설정
-  this.setSize(600, 600);
++ ```
+  this.setSize(600, 600); //창의 사이즈 설정
   ```
 
 
@@ -98,16 +98,16 @@ public Machine()
 
 ### 자리정리
 
-+ ```글씨 크기 정하기
-  title1.setFont(new Font("굴림", Font.BOLD, 17));
++ ```
+  title1.setFont(new Font("굴림", Font.BOLD, 17)); //글씨 크기 정하기
   ```
 
-+ ```자리 정리를 할 때 묶기 위함
-  private JPanel j7 = new JPanel(new GridLayout(0, 2, 5, 0));
++ ```
+  private JPanel j7 = new JPanel(new GridLayout(0, 2, 5, 0)); //자리 정리를 할 때 묶기 위함
   ```
 
-+ ```중앙 정렬
-  title1.setHorizontalAlignment(title1.CENTER);
++ ```
+  title1.setHorizontalAlignment(title1.CENTER); //중앙 정렬
   ```
 
 1. 창의 위쪽 부분을 정리한다.
