@@ -28,8 +28,6 @@ public class Machine extends JFrame implements MouseListener {
     private JPanel j1 = new JPanel(new BorderLayout());
     private JPanel endPage = new JPanel(new FlowLayout());
     private JPanel j2 = new JPanel(new GridLayout(0, 3, 5, 0));
-    private JPanel j3 = new JPanel(new FlowLayout());
-    private JPanel j6 = new JPanel(new GridLayout(0, 6, 10, 10));
     private JPanel j7 = new JPanel(new GridLayout(0,2,10,10));
     private JPanel j5 = new JPanel(new GridLayout(0, 3, 10, 10));
 
@@ -60,28 +58,13 @@ public class Machine extends JFrame implements MouseListener {
     private JButton bu6 = new JButton("-1");
 
     private JLabel s3 = new JLabel("0");
-    private JButton ss3 = new JButton("INPUT");
-    private JButton ss5 = new JButton("10000₩");
-    private JButton ss8 = new JButton("-10000₩");
-    private JButton ss6 = new JButton("1000₩");
-    private JButton ss7 = new JButton("-1000₩");
+    private JButton ss3 = new JButton("INPUT(Only 1000₩)");
 
     private JLabel s4 = new JLabel("0");
     private JButton ss4 = new JButton("CHANGE");
 
     private JLabel s2 = new JLabel("0");
     private JButton ss2 = new JButton("PURCHASE!");
-
-    private JLabel N1 = new JLabel("");
-    private JLabel N2 = new JLabel("");
-    private JLabel N3 = new JLabel("");
-    private JLabel N4 = new JLabel("");
-    private JLabel N5 = new JLabel("");
-    private JLabel N6 = new JLabel("");
-    private JLabel N7 = new JLabel("");
-    private JLabel N8 = new JLabel("");
-
-
 
     private static int Num1 = 0;
     private static int Num2 = 0;
@@ -137,28 +120,16 @@ public class Machine extends JFrame implements MouseListener {
         j5.add(bu6);
         j5.setBackground(Color.WHITE);
 
-        j6.add(s3);
-        j6.add(ss3);
-        j6.add(ss5);
-        j6.add(ss8);
-        j6.add(ss6);
-        j6.add(ss7);
+        j7.add(s3);
+        j7.add(ss3);
+
+        j7.add(s4);
+        j7.add(ss4);
 
 
-        j6.add(N1);
-        j6.add(N2);
-        j6.add(s4);
-        j6.add(ss4);
-        j6.add(N3);
-        j6.add(N4);
-
-        j6.add(N5);
-        j6.add(N6);
-        j6.add(s2);
-        j6.add(ss2);
-        j6.add(N7);
-        j6.add(N8);
-        this.add("South", j6);
+        j7.add(s2);
+        j7.add(ss2);
+        this.add("South", j7);
 
         title1.setHorizontalAlignment(title1.CENTER);
 
@@ -186,13 +157,13 @@ public class Machine extends JFrame implements MouseListener {
 
         j1.setPreferredSize(new Dimension(70, 70));
         j5.setPreferredSize(new Dimension(380, 380));
-        j6.setPreferredSize(new Dimension(150, 150));
+        j7.setPreferredSize(new Dimension(150, 150));
 
 
 
         this.getContentPane().add(j1, BorderLayout.NORTH);
         this.getContentPane().add(j5, BorderLayout.CENTER);
-        this.getContentPane().add(j6, BorderLayout.SOUTH);
+        this.getContentPane().add(j7, BorderLayout.SOUTH);
 
         endPage.setVisible(false);
 
@@ -207,7 +178,7 @@ public class Machine extends JFrame implements MouseListener {
                 endPage.setVisible(true);
                 j1.setVisible(false);
                 j5.setVisible(false);
-                j6.setVisible(false);
+                j7.setVisible(false);
             }
 
         });
@@ -231,11 +202,7 @@ public class Machine extends JFrame implements MouseListener {
         bu4.addMouseListener(this);
         bu5.addMouseListener(this);
         bu6.addMouseListener(this);
-        ss5.addMouseListener(this);
-        ss6.addMouseListener(this);
-        ss7.addMouseListener(this);
-        ss8.addMouseListener(this);
-
+        ss3.addMouseListener(this);
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -301,44 +268,23 @@ public class Machine extends JFrame implements MouseListener {
             l3.setText(String.valueOf(Num3));
             s2.setText(String.valueOf(val));
 
-        } else if (e.getSource() == (JButton) ss2) {
+        }
+        else if (e.getSource() == (JButton) ss2) {
             s2.setText("0");
 
-        } else if (e.getSource() == ss5) {
-            input = Integer.parseInt(s3.getText());
-            input += 10000;
-            sub = Integer.parseInt(s4.getText());
-            sub += 10000;
-            s4.setText(String.valueOf(sub));
-            s3.setText(String.valueOf(input));
-        } else if (e.getSource() == (JButton) ss6) {
+        }
+        else if(e.getSource() == ss3){
             input = Integer.parseInt(s3.getText());
             input += 1000;
+
             sub = Integer.parseInt(s4.getText());
             sub += 1000;
             s4.setText(String.valueOf(sub));
             s3.setText(String.valueOf(input));
 
-        } else if (e.getSource() == ss8) {
-            input = Integer.parseInt(s3.getText());
-            input -= 10000;
-            sub = Integer.parseInt(s4.getText());
-            sub -= 10000;
-            s4.setText(String.valueOf(sub));
-            s3.setText(String.valueOf(input));
-
-        } else if (e.getSource() == ss7) {
-            input = Integer.parseInt(s3.getText());
-            input -= 1000;
-
-            sub = Integer.parseInt(s4.getText());
-            sub -= 1000;
-            s4.setText(String.valueOf(sub));
-            s3.setText(String.valueOf(input));
-
-        } else if (e.getSource() == ss3) {
-            s3.setText("0");
         }
+
+
     }
 
     public void mouseEntered(MouseEvent e) {
