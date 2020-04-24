@@ -35,7 +35,7 @@ public class Machine extends JFrame implements MouseListener {
 
    private JLabel title1 = new JLabel("Put the money in and choose the drink you want.");
 
-    private JLabel title2 = new JLabel("VENDING MACHINE");
+    private JLabel title2 = new JLabel("COFFEE MACHINE");
     private JButton btnEnd = new JButton("Your purchase has been completed!");
     ImageIcon b1 = new ImageIcon("images/coffee.png");
     JLabel imagelabel1 = new JLabel(b1);
@@ -160,7 +160,6 @@ public class Machine extends JFrame implements MouseListener {
         j6.add(N7);
         j6.add(N8);
         this.add("South", j6);
-        j6.setBackground(Color.white);
 
         title1.setHorizontalAlignment(title1.CENTER);
 
