@@ -15,34 +15,38 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.text.JTextComponent;
+import java.awt.Color;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class Machine extends JFrame implements MouseListener {
-
-    JFrame frame = new JFrame();
 
 
     private JPanel j1 = new JPanel(new BorderLayout());
     private JPanel endPage = new JPanel(new FlowLayout());
     private JPanel j2 = new JPanel(new GridLayout(0, 3, 5, 0));
     private JPanel j3 = new JPanel(new FlowLayout());
-    private JPanel j6 = new JPanel(new GridLayout(0, 6, 10, 5));
+    private JPanel j6 = new JPanel(new GridLayout(0, 6, 10, 10));
+    private JPanel j7 = new JPanel(new GridLayout(0,2,10,10));
     private JPanel j5 = new JPanel(new GridLayout(0, 3, 10, 10));
 
+   private JLabel title1 = new JLabel("Put the money in and choose the drink you want.");
 
-    private JLabel title = new JLabel("음식 자판기");
-    private JButton btnEnd = new JButton("구매가 완료되었습니다!");
-    ImageIcon b1 = new ImageIcon("./image/food1.jpg");
+    private JLabel title2 = new JLabel("VENDING MACHINE");
+    private JButton btnEnd = new JButton("Your purchase has been completed!");
+    ImageIcon b1 = new ImageIcon("images/coffee.png");
     JLabel imagelabel1 = new JLabel(b1);
-    ImageIcon b2 = new ImageIcon("./image/food2.jpg");
+    ImageIcon b2 = new ImageIcon("images/juice.png");
     JLabel imagelabel2 = new JLabel(b2);
-    ImageIcon b3 = new ImageIcon("./image/food3.jpg");
+    ImageIcon b3 = new ImageIcon("images/coka.png");
     JLabel imagelabel3 = new JLabel(b3);
 
-    private JLabel name1 = new JLabel("햄버거 : 1300원");
-    private JLabel name2 = new JLabel("치킨 : 1200원");
-    private JLabel name3 = new JLabel("콜라 : 1400원");
+    private JLabel name1 = new JLabel("COFFEE | 1200₩");
+    private JLabel name2 = new JLabel("JUICE | 1100₩");
+    private JLabel name3 = new JLabel("COKE | 1400₩");
 
     private JLabel l1 = new JLabel("0");
     private JButton bu1 = new JButton("+1");
@@ -56,24 +60,28 @@ public class Machine extends JFrame implements MouseListener {
     private JButton bu3 = new JButton("+1");
     private JButton bu6 = new JButton("-1");
 
-    private JTextField s1 = new JTextField("0");
-    private JButton ss1 = new JButton("시작");
-
     private JLabel s3 = new JLabel("0");
-    private JButton ss3 = new JButton("투입금액");
-    private JButton ss5 = new JButton("10000원");
-    private JButton ss8 = new JButton("-10000원");
-    private JButton ss6 = new JButton("1000원");
-    private JButton ss7 = new JButton("-1000원");
+    private JButton ss3 = new JButton("INPUT");
+    private JButton ss5 = new JButton("10000₩");
+    private JButton ss8 = new JButton("-10000₩");
+    private JButton ss6 = new JButton("1000₩");
+    private JButton ss7 = new JButton("-1000₩");
 
-
-    private JLabel s8 = new JLabel("");
-    private JLabel s9 = new JLabel("");
     private JLabel s4 = new JLabel("0");
-    private JButton ss4 = new JButton("거스름돈");
+    private JButton ss4 = new JButton("CHANGE");
 
     private JLabel s2 = new JLabel("0");
-    private JButton ss2 = new JButton("구매");
+    private JButton ss2 = new JButton("PURCHASE!");
+
+    private JLabel N1 = new JLabel("");
+    private JLabel N2 = new JLabel("");
+    private JLabel N3 = new JLabel("");
+    private JLabel N4 = new JLabel("");
+    private JLabel N5 = new JLabel("");
+    private JLabel N6 = new JLabel("");
+    private JLabel N7 = new JLabel("");
+    private JLabel N8 = new JLabel("");
+
 
 
     private static int Num1 = 0;
@@ -86,7 +94,7 @@ public class Machine extends JFrame implements MouseListener {
 
     public Machine()
     {
-        super("자판기");
+        super("VENDING MACHINE");
 
         init();
         start();
@@ -103,18 +111,19 @@ public class Machine extends JFrame implements MouseListener {
         name2.setFont(new Font("굴림", Font.BOLD, 15));
         name3.setFont(new Font("굴림", Font.BOLD, 15));
         btnEnd.setFont(new Font("굴림", Font.BOLD, 15));
-        j1.add(title);
-        this.add("North", j1);
 
         endPage.add(btnEnd);
 
-        j2.add(imagelabel1);
-        j2.add(imagelabel2);
-        j2.add(imagelabel3);
-        this.add("North", j2);
+        j1.add(title1);
 
+        this.add("North", j1);
+
+        j1.setBackground(Color.ORANGE);
 
         this.add("Center", j5);
+        j5.add(imagelabel1);
+        j5.add(imagelabel2);
+        j5.add(imagelabel3);
         j5.add(name1);
         j5.add(name2);
         j5.add(name3);
@@ -127,10 +136,7 @@ public class Machine extends JFrame implements MouseListener {
         j5.add(bu4);
         j5.add(bu5);
         j5.add(bu6);
-
-        j3.add(s1);
-        j3.add(ss1);
-        this.add("South", j3);
+        j5.setBackground(Color.WHITE);
 
         j6.add(s3);
         j6.add(ss3);
@@ -139,20 +145,33 @@ public class Machine extends JFrame implements MouseListener {
         j6.add(ss6);
         j6.add(ss7);
 
-        this.add("South", j6);
-        j6.add(s8);
+
+        j6.add(N1);
+        j6.add(N2);
         j6.add(s4);
         j6.add(ss4);
+        j6.add(N3);
+        j6.add(N4);
 
+        j6.add(N5);
+        j6.add(N6);
         j6.add(s2);
         j6.add(ss2);
-        j6.add(s9);
+        j6.add(N7);
+        j6.add(N8);
         this.add("South", j6);
+        j6.setBackground(Color.white);
 
+        title1.setHorizontalAlignment(title1.CENTER);
 
         l1.setHorizontalAlignment(l1.CENTER);
         l2.setHorizontalAlignment(l2.CENTER);
         l3.setHorizontalAlignment(l3.CENTER);
+
+
+        name1.setHorizontalAlignment(name1.CENTER);
+        name2.setHorizontalAlignment(name2.CENTER);
+        name3.setHorizontalAlignment(name3.CENTER);
 
         bu1.setHorizontalAlignment(bu1.CENTER);
         bu2.setHorizontalAlignment(bu2.CENTER);
@@ -161,22 +180,20 @@ public class Machine extends JFrame implements MouseListener {
         bu5.setHorizontalAlignment(bu5.CENTER);
         bu6.setHorizontalAlignment(bu6.CENTER);
 
-        s1.setHorizontalAlignment(s1.CENTER);
         s2.setHorizontalAlignment(s2.CENTER);
-
         s3.setHorizontalAlignment(s3.CENTER);
         s4.setHorizontalAlignment(s4.CENTER);
 
-        j2.setPreferredSize(new Dimension(200, 200));
-        j3.setPreferredSize(new Dimension(100, 100));
-        j6.setPreferredSize(new Dimension(100, 100));
-        j5.setPreferredSize(new Dimension(100, 100));
+
+
+        j1.setPreferredSize(new Dimension(50, 50));
+        j5.setPreferredSize(new Dimension(400, 400));
+        j6.setPreferredSize(new Dimension(150, 150));
+
 
 
         this.getContentPane().add(j1, BorderLayout.NORTH);
-        this.getContentPane().add(j2, BorderLayout.NORTH);
         this.getContentPane().add(j5, BorderLayout.CENTER);
-        this.getContentPane().add(j3, BorderLayout.SOUTH);
         this.getContentPane().add(j6, BorderLayout.SOUTH);
 
         endPage.setVisible(false);
@@ -190,8 +207,7 @@ public class Machine extends JFrame implements MouseListener {
             public void actionPerformed(ActionEvent e) {
                 getContentPane().add(endPage, BorderLayout.CENTER);
                 endPage.setVisible(true);
-                j2.setVisible(false);
-                j3.setVisible(false);
+                j1.setVisible(false);
                 j5.setVisible(false);
                 j6.setVisible(false);
             }
@@ -231,39 +247,39 @@ public class Machine extends JFrame implements MouseListener {
 
         if (e.getSource() == (JButton) bu1) {
             val = Integer.parseInt(s2.getText());
-            val += 1300;
+            val += 1200;
             this.Num1 = this.Num1 + 1;
             sub = Integer.parseInt(s4.getText());
-            sub -= 1300;
+            sub -= 1200;
 
             l1.setText(String.valueOf(Num1));
             s2.setText(String.valueOf(val));
             s4.setText(String.valueOf(sub));
         } else if (e.getSource() == (JButton) bu4) {
             val = Integer.parseInt(s2.getText());
-            val -= 1300;
+            val -= 1200;
             this.Num1 = this.Num1 - 1;
             sub = Integer.parseInt(s4.getText());
-            sub += 1300;
+            sub += 1200;
 
             l1.setText(String.valueOf(Num1));
             s2.setText(String.valueOf(val));
             s4.setText(String.valueOf(sub));
         } else if (e.getSource() == (JButton) bu2) {
             val = Integer.parseInt(s2.getText());
-            val += 1200;
+            val += 1100;
             this.Num2 = this.Num2 + 1;
             sub = Integer.parseInt(s4.getText());
-            sub -= 1200;
+            sub -= 1100;
             s4.setText(String.valueOf(sub));
             l2.setText(String.valueOf(Num2));
             s2.setText(String.valueOf(val));
         } else if (e.getSource() == (JButton) bu5) {
             val = Integer.parseInt(s2.getText());
-            val -= 1200;
+            val -= 1100;
             this.Num2 = this.Num2 - 1;
             sub = Integer.parseInt(s4.getText());
-            sub += 1200;
+            sub += 1100;
 
             l2.setText(String.valueOf(Num2));
             s2.setText(String.valueOf(val));
@@ -286,8 +302,10 @@ public class Machine extends JFrame implements MouseListener {
             s4.setText(String.valueOf(sub));
             l3.setText(String.valueOf(Num3));
             s2.setText(String.valueOf(val));
+
         } else if (e.getSource() == (JButton) ss2) {
             s2.setText("0");
+
         } else if (e.getSource() == ss5) {
             input = Integer.parseInt(s3.getText());
             input += 10000;
@@ -324,6 +342,7 @@ public class Machine extends JFrame implements MouseListener {
             s3.setText("0");
         }
     }
+
     public void mouseEntered(MouseEvent e) {
 
     }
@@ -339,5 +358,10 @@ public class Machine extends JFrame implements MouseListener {
     public void mouseReleased(MouseEvent e) {
 
     }
+
+
+
 }
+
+
 
