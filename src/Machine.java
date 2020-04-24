@@ -14,15 +14,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.Color;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
-public class Machine extends JFrame implements MouseListener {
+public class Machine extends JFrame implements MouseListener
+{
 
 
     private JPanel j1 = new JPanel(new BorderLayout());
@@ -69,9 +64,6 @@ public class Machine extends JFrame implements MouseListener {
     private static int Num1 = 0;
     private static int Num2 = 0;
     private static int Num3 = 0;
-    private static int Num4 = 0;
-    private static int Num5 = 0;
-    private static int Num6 = 0;
 
 
     public Machine()
@@ -88,11 +80,11 @@ public class Machine extends JFrame implements MouseListener {
 
         j2.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
 
-
+        title1.setFont(new Font("굴림", Font.BOLD, 17));
         name1.setFont(new Font("굴림", Font.BOLD, 15));
         name2.setFont(new Font("굴림", Font.BOLD, 15));
         name3.setFont(new Font("굴림", Font.BOLD, 15));
-        btnEnd.setFont(new Font("굴림", Font.BOLD, 15));
+        btnEnd.setFont(new Font("굴림", Font.BOLD, 17));
 
         endPage.add(btnEnd);
 
