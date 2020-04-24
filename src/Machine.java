@@ -84,14 +84,16 @@ public class Machine extends JFrame implements MouseListener {
     private static int Num6 = 0;
 
 
-    public Machine() {
+    public Machine()
+    {
         super("자판기");
 
         init();
         start();
     }
 
-    public void init() {
+    public void init()
+    {
         this.setSize(600, 600);
 
         j2.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
