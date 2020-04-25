@@ -68,7 +68,7 @@ public class Machine extends JFrame implements MouseListener
 
     public Machine()
     {
-        super("COFFEE MACHINE");
+        super("VENDING MACHINE");
 
         init();
         start();
@@ -147,8 +147,8 @@ public class Machine extends JFrame implements MouseListener
 
 
 
-        j1.setPreferredSize(new Dimension(70, 70));
-        j5.setPreferredSize(new Dimension(380, 380));
+        j1.setPreferredSize(new Dimension(60, 60));
+        j5.setPreferredSize(new Dimension(390, 390));
         j7.setPreferredSize(new Dimension(150, 150));
 
 
